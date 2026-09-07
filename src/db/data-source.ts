@@ -1,6 +1,7 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { envs } from '../config/envs';
 import { Report } from '../reports/entities/report.entity';
+import { User } from '../users/entities/user.entity';
 
 export const dataSourceOptions: DataSourceOptions = {
   type: envs.DB_TYPE,
@@ -9,7 +10,7 @@ export const dataSourceOptions: DataSourceOptions = {
   username: envs.DB_USER,
   password: envs.DB_PASSWORD,
   database: envs.DB_NAME,
-  entities: [Report],
+  entities: [Report, User],
   migrations: [`${__dirname}/migrations/*{.ts,.js}`],
   synchronize: false,
 };
