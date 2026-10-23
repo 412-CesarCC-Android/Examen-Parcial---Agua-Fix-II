@@ -13,7 +13,11 @@ const escapeHtml = (value: string): string =>
       })[character] ?? character,
   );
 
-export const generateReportTemplate = (dto: CreateReportDto): string => {
+export const generateReportTemplate = (
+  dto: CreateReportDto,
+  photoUrl: string,
+): string => {
+  const photo = escapeHtml(photoUrl);
   const address = escapeHtml(dto.address);
   const description = escapeHtml(dto.description);
   const severity = escapeHtml(dto.severity);
@@ -30,6 +34,11 @@ export const generateReportTemplate = (dto: CreateReportDto): string => {
       <tr>
         <td colspan="2" style="padding:24px;background-color:#0b6fa4;color:#ffffff;">
           <h1 style="margin:0;font-size:24px;">Nuevo reporte de fuga de agua</h1>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="padding:14px;border-bottom:1px solid #dbe5ec;">
+          <img src="${photo}" alt="Foto de la fuga" width="600" style="display:block;width:100%;max-width:600px;height:auto;border:0;" />
         </td>
       </tr>
       <tr>

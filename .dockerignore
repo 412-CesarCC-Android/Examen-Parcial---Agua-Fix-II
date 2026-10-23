@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+compose.yaml
+node_modules
+dist
+coverage
+.git
+.github
+.gitignore
+bruno
+test
+*.log
+Dockerfile
+.dockerignore
+README.md

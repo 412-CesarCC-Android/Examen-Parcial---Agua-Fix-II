@@ -11,8 +11,11 @@ export class ReportsService {
     private readonly reportRepository: Repository<Report>,
   ) {}
 
-  create(createReportDto: CreateReportDto): Promise<Report> {
-    const report = this.reportRepository.create(createReportDto);
+  create(createReportDto: CreateReportDto, photoUrl: string): Promise<Report> {
+    const report = this.reportRepository.create({
+      ...createReportDto,
+      photoUrl,
+    });
     return this.reportRepository.save(report);
   }
 

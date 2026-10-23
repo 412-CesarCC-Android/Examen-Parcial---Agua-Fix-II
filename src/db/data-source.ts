@@ -12,6 +12,7 @@ export const dataSourceOptions: DataSourceOptions = {
   database: envs.DB_NAME,
   entities: [Report, User],
   migrations: [`${__dirname}/migrations/*{.ts,.js}`],
+  migrationsRun: true,
   synchronize: false,
 };
 
